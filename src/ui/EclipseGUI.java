@@ -7,6 +7,8 @@ import javafx.scene.shape.Circle;
 import threads.DayCycleThread;
 
 public class EclipseGUI {
+	
+	public final static double STEP = 5;
 
     @FXML
     private AnchorPane background;
@@ -44,6 +46,10 @@ public class EclipseGUI {
     
     public Circle getMoon() {
     	return moon;
+    }
+    
+    public Circle getSun() {
+    	return sun;
     }
 
 }

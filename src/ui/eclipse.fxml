@@ -5,10 +5,10 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: rgb(253, 255, 117);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.EclipseGUI">
+<AnchorPane fx:id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.EclipseGUI">
    <children>
-      <Circle fx:id="sun" fill="#ffc51f" layoutX="300.0" layoutY="101.0" radius="58.0" stroke="#ebe009" strokeType="INSIDE" />
-      <Circle fx:id="moon" fill="#61605b" layoutX="58.0" layoutY="101.0" radius="58.0" stroke="#ababab" strokeType="INSIDE" />
+      <Circle fx:id="sun" fill="#ffc51f" layoutX="358.0" layoutY="142.0" radius="58.0" stroke="#ebe009" strokeType="INSIDE" />
+      <Circle fx:id="moon" fill="#61605b" layoutX="87.0" layoutY="142.0" radius="58.0" stroke="#ababab" strokeType="INSIDE" />
       <Button layoutX="164.0" layoutY="332.0" mnemonicParsing="false" onAction="#startButton" text="Start">
          <font>
             <Font size="18.0" />
@@ -19,5 +19,10 @@
             <Font size="18.0" />
          </font>
       </Button>
+      <Circle fx:id="star4" fill="#ffc51f" layoutX="45.0" layoutY="20.0" radius="9.0" stroke="#ebe009" strokeType="INSIDE" />
+      <Circle fx:id="star3" fill="#ffc51f" layoutX="173.0" layoutY="65.0" radius="9.0" stroke="#ebe009" strokeType="INSIDE" />
+      <Circle fx:id="star1" fill="#ffc51f" layoutX="427.0" layoutY="65.0" radius="9.0" stroke="#ebe009" strokeType="INSIDE" />
+      <Circle fx:id="star2" fill="#ffc51f" layoutX="309.0" layoutY="29.0" radius="9.0" stroke="#ebe009" strokeType="INSIDE" />
+      <Circle fx:id="star" fill="#ffc51f" layoutX="553.0" layoutY="29.0" radius="9.0" stroke="#ebe009" strokeType="INSIDE" />
    </children>
 </AnchorPane>

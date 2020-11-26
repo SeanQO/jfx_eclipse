@@ -18,7 +18,23 @@ public class EclipseGUI {
 
     @FXML
     private Circle moon;
-    
+
+    @FXML
+    private Circle star4;
+
+    @FXML
+    private Circle star3;
+
+    @FXML
+    private Circle star1;
+
+    @FXML
+    private Circle star2;
+
+    @FXML
+    private Circle star;
+
+
     private boolean isBouncing;
 
     @FXML

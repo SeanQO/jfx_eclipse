@@ -15,15 +15,21 @@ public class EclipseGUI {
 
     @FXML
     private Circle moon;
+    
+    private boolean isBouncing;
 
     @FXML
     void startButton(ActionEvent event) {
-
+    	isBouncing=true;
     }
 
     @FXML
     void stopButton(ActionEvent event) {
-
+    	isBouncing=false;
+    }
+    
+    public boolean isBouncing() {
+    	return isBouncing;
     }
 
 }

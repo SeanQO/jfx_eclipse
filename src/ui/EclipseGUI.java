@@ -22,7 +22,7 @@ public class EclipseGUI {
     @FXML
     void startButton(ActionEvent event) {
     	isBouncing=true;
-    	new DayCycleThread(this).start();
+    	new DayCycleThread(this, 243, 245, 127).start();
     }
 
     @FXML

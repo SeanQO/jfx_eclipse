@@ -28,8 +28,16 @@ public class EclipseGUI {
     	isBouncing=false;
     }
     
+    public void moveBall() {
+    	
+    }
+    
     public boolean isBouncing() {
     	return isBouncing;
+    }
+    
+    public AnchorPane getBackground() {
+    	return background;
     }
 
 }

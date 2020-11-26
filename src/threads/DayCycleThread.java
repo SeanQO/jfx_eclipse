@@ -11,6 +11,9 @@ public class DayCycleThread extends Thread{
 	}
 	
 	public void run() {
-		
+		while(true) {
+			eGUI.getBackground().setStyle("-fx-background-color: rgb(253, 255, 117)");
+			
+		}
 	}
 }

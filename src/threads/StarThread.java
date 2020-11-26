@@ -9,5 +9,7 @@ public class StarThread extends Thread{
 		eGUI=eGUIP;
 	}
 	
-	
+	public void run() {
+		
+	}
 }

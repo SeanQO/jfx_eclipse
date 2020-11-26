@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
+import threads.DayCycleThread;
 
 public class EclipseGUI {
 
@@ -21,6 +22,7 @@ public class EclipseGUI {
     @FXML
     void startButton(ActionEvent event) {
     	isBouncing=true;
+    	new DayCycleThread(this).start();
     }
 
     @FXML
@@ -38,6 +40,10 @@ public class EclipseGUI {
     
     public AnchorPane getBackground() {
     	return background;
+    }
+    
+    public Circle getMoon() {
+    	return moon;
     }
 
 }

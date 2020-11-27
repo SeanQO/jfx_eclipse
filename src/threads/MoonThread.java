@@ -1,4 +1,4 @@
-package thread;
+package threads;
 
 import model.Moon;
 import ui.EclipseGUI;
@@ -17,7 +17,6 @@ public class MoonThread extends Thread{
         while (moon.isMoving()){
             moon.move();
             moonGUI.updateBall();
-            //System.out.println(ball.getSleep());
             try {
                 Thread.sleep(moon.getSleep());
             } catch (InterruptedException e) {

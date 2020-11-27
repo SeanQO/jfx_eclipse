@@ -42,7 +42,7 @@ public class DayCycleThread extends Thread{
 		}
 		Platform.runLater(new Thread() {
 			public void run() {
-				eGUI.updateBackgroung(r, g, b);
+				//eGUI.updateBackgroung(r, g, b);
 			}
 		});
 		eGUI.getBackground().setStyle("-fx-background-color: rgb("+r+","+g+","+b+")");

@@ -12,8 +12,9 @@ public class StarThread extends Thread{
 		eGUI=eGUIP;
 		this.star = star;
 	}
-	
+
 	public void run() {
+		/**
 		while (eGUI.isNigth()) {
 			
 			star.twinkle();
@@ -24,5 +25,8 @@ public class StarThread extends Thread{
             }
 			
 		}
+		 **/
+
 	}
+
 }

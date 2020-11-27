@@ -7,7 +7,7 @@ import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import model.Moon;
 import threads.DayCycleThread;
-import thread.MoonThread;
+import threads.MoonThread;
 
 public class EclipseGUI {
     private Moon m;

@@ -15,11 +15,14 @@ public class Main extends Application{
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		Parent root = FXMLLoader.load(getClass().getResource("eclipse.fxml"));
-		
-		Scene scene = new Scene(root);
-		primaryStage.setScene(scene);
-		primaryStage.setTitle("Ecplise");
+
+		FXMLLoader fx = new FXMLLoader(getClass().getResource("eclipse.fxml"));
+		EclipseGUI eclipse = new EclipseGUI(primaryStage);
+		fx.setController(eclipse);
+		Parent root = fx.load();
+		Scene sc = new Scene(root);
+		primaryStage.setScene(sc);
+		primaryStage.setTitle("Eclipse lunar");
 		primaryStage.show();
 		
 	}

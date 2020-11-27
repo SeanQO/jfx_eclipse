@@ -4,6 +4,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
+import model.Moon;
 import threads.DayCycleThread;
 
 public class EclipseGUI {
@@ -36,6 +38,11 @@ public class EclipseGUI {
 
 
     private boolean isBouncing;
+
+    private Stage st;
+    public EclipseGUI(Stage primaryStage) {
+        st = primaryStage;
+    }
 
     @FXML
     void startButton(ActionEvent event) {

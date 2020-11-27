@@ -49,20 +49,17 @@ public class EclipseGUI {
     void startButton(ActionEvent event) {
     	isBouncing=true;
     	new DayCycleThread(this, 243, 245, 127).start();
+        MoonThread bt = new MoonThread(this,m);
+        m.setMoving(true);
+        m.setMax(background.getWidth());
+        bt.start();
     }
 
     @FXML
     void stopButton(ActionEvent event) {
     	isBouncing=false;
     }
-    
-    public void moveMoon() {
-        MoonThread bt = new MoonThread(this,m);
-        m.setMoving(true);
-        m.setMax(background.getWidth());
-        bt.start();
-    }
-    
+
     public boolean isBouncing() {
     	return isBouncing;
     }

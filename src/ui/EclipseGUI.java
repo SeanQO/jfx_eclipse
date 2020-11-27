@@ -1,6 +1,7 @@
 package ui;
 
 import javafx.event.ActionEvent;
+
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
@@ -40,6 +41,7 @@ public class EclipseGUI {
     private boolean isBouncing;
 
     private Stage st;
+    
     public EclipseGUI(Stage primaryStage) {
         st = primaryStage;
     }
@@ -65,6 +67,10 @@ public class EclipseGUI {
     
     public AnchorPane getBackground() {
     	return background;
+    }
+    
+    public boolean isNigth() {
+    	return true;
     }
     
     public Circle getMoon() {

@@ -11,7 +11,6 @@ import threads.MoonThread;
 
 public class EclipseGUI {
     private Moon m;
-    private Stage st;
 	public final static double STEP = 5;
 
     @FXML
@@ -42,8 +41,8 @@ public class EclipseGUI {
     private boolean isBouncing;
 
 
-    public EclipseGUI(Stage primaryStage) {
-        st = primaryStage;
+    public EclipseGUI() {
+        
     }
 
     @FXML
@@ -60,7 +59,7 @@ public class EclipseGUI {
     public void moveMoon() {
         MoonThread bt = new MoonThread(this,m);
         m.setMoving(true);
-        m.setMax(st.getWidth());
+        m.setMax(background.getWidth());
         bt.start();
     }
     
@@ -85,11 +84,8 @@ public class EclipseGUI {
     }
 
     public void initialize(){
-        m = new Moon(moon.getLayoutX(),50,5,st.getWidth(),moon.getRadius());
+        m = new Moon(moon.getLayoutX(),50,5,background.getWidth(),moon.getRadius());
     }
 
-    public void setSt(Stage st) {
-        this.st = st;
-    }
 
 }

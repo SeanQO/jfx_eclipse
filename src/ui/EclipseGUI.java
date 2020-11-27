@@ -58,6 +58,7 @@ public class EclipseGUI {
     @FXML
     void stopButton(ActionEvent event) {
     	isBouncing=false;
+    	m.setMoving(false);
     }
 
     public boolean isBouncing() {

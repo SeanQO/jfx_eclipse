@@ -7,9 +7,11 @@ import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import model.Moon;
 import threads.DayCycleThread;
+import thread.MoonThread;
 
 public class EclipseGUI {
-	
+    private Moon m;
+    private Stage st;
 	public final static double STEP = 5;
 
     @FXML
@@ -39,7 +41,7 @@ public class EclipseGUI {
 
     private boolean isBouncing;
 
-    private Stage st;
+
     public EclipseGUI(Stage primaryStage) {
         st = primaryStage;
     }
@@ -55,8 +57,11 @@ public class EclipseGUI {
     	isBouncing=false;
     }
     
-    public void moveBall() {
-    	
+    public void moveMoon() {
+        MoonThread bt = new MoonThread(this,m);
+        m.setMoving(true);
+        m.setMax(st.getWidth());
+        bt.start();
     }
     
     public boolean isBouncing() {
@@ -73,6 +78,18 @@ public class EclipseGUI {
     
     public Circle getSun() {
     	return sun;
+    }
+
+    public void updateBall(){
+        moon.setLayoutX(m.getX());
+    }
+
+    public void initialize(){
+        m = new Moon(moon.getLayoutX(),50,5,st.getWidth(),moon.getRadius());
+    }
+
+    public void setSt(Stage st) {
+        this.st = st;
     }
 
 }

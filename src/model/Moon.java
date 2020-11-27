@@ -1,12 +1,11 @@
 package model;
 
-public class Moon {
-
+public class Moon
+{
     private double x ;
     private long sleep;
     private int step;
     private int direction;
-    public static int LEFT = -1;
     public static int RIGHT = 1;
     private double max;
     private double radius;
@@ -18,20 +17,17 @@ public class Moon {
         this.step = step;
         this.max = max;
         this.radius = radius;
-        direction = LEFT;
+        direction = RIGHT;
         moving = false;
     }
     public void move(){
         x = x + direction*step;
-        System.out.println("x: " + x);
-        System.out.println("max: " + max);
-        if (x-radius<0){
+        if (x>646){
             x=radius;
-            direction = RIGHT;
         }
-        if ((x + radius) > max){
-            x = max - radius;
-            direction = LEFT;
+        if (x==646){
+            x = -60;
+            move();
         }
     }
 

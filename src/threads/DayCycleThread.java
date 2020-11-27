@@ -1,5 +1,6 @@
 package threads;
 
+import javafx.application.Platform;
 import ui.EclipseGUI;
 
 public class DayCycleThread extends Thread{
@@ -32,16 +33,19 @@ public class DayCycleThread extends Thread{
 	}
 	
 	public void run() {
-		while(true) {
-			double positionOfTheMoon = eGUI.getMoon().getLayoutX();
-			double positionOfTheSun = eGUI.getSun().getLayoutX();
-			if(positionOfTheMoon>=positionOfTheSun && (r<RGB[0] || g<RGB[1] || b<RGB[2])) {
-				clearSky();
-			}else if(positionOfTheMoon>=eGUI.getSun().getRadius()*2 && positionOfTheMoon<positionOfTheSun) {
-				darkenSky();
-			}
-			eGUI.getBackground().setStyle("-fx-background-color: rgb("+r+","+g+","+b+")");
+		double positionOfTheMoon = eGUI.getMoon().getLayoutX();
+		double positionOfTheSun = eGUI.getSun().getLayoutX();
+		if(positionOfTheMoon>=positionOfTheSun && (r<RGB[0] || g<RGB[1] || b<RGB[2])) {
+			clearSky();
+		}else if(positionOfTheMoon>=eGUI.getSun().getRadius()*2 && positionOfTheMoon<positionOfTheSun) {
+			darkenSky();
 		}
+		Platform.runLater(new Thread() {
+			public void run() {
+				eGUI.updateBackgroung(r, g, b);
+			}
+		});
+		eGUI.getBackground().setStyle("-fx-background-color: rgb("+r+","+g+","+b+")");
 	}
 	
 	public void darkenSky() {

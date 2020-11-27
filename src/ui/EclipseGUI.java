@@ -40,11 +40,11 @@ public class EclipseGUI {
 
     private boolean isBouncing;
 
-    private Stage st;
+   /** private Stage st;
     
     public EclipseGUI(Stage primaryStage) {
         st = primaryStage;
-    }
+    } **/
 
     @FXML
     void startButton(ActionEvent event) {
@@ -79,6 +79,10 @@ public class EclipseGUI {
     
     public Circle getSun() {
     	return sun;
+    }
+    
+    public void updateBackgroung(int r, int g, int b) {
+    	background.setStyle("-fx-background-color: rgb("+r+","+g+","+b+")");
     }
 
 }

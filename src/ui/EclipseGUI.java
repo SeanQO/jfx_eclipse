@@ -97,6 +97,11 @@ public class EclipseGUI {
 
     public void updateBall() {
         moon.setLayoutX(m.getX());
+        vesicle.setLayoutX(m.getX()-20);
+        vesicle1.setLayoutX(m.getX());
+        vesicle2.setLayoutX(m.getX());
+        vesicle3.setLayoutX(m.getX()+10);
+
         if (moon.getLayoutX() >= sun.getLayoutX() - sun.getRadius() && moon.getLayoutX() <= sun.getLayoutX()) {
             color = color.darker();
             star1.setVisible(true);

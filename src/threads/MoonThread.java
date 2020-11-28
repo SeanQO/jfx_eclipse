@@ -4,8 +4,8 @@ import model.Moon;
 import ui.EclipseGUI;
 
 public class MoonThread extends Thread {
-    private EclipseGUI moonGUI;
-    private Moon moon;
+    private final EclipseGUI moonGUI;
+    private final Moon moon;
 
     public MoonThread(EclipseGUI moonGUI, Moon moon) {
         setDaemon(true);

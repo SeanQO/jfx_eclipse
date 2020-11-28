@@ -3,11 +3,11 @@ package model;
 public class Moon {
     private double x;
     private long sleep;
-    private int step;
-    private int direction;
+    private final int step;
+    private final int direction;
     public static int RIGHT = 1;
     private double max;
-    private double radius;
+    private final double radius;
     private boolean moving;
 
     public Moon(double x, long sleep, int step, double max, double radius) {

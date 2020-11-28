@@ -87,6 +87,11 @@ public class EclipseGUI {
         star.setVisible(brightness);
     }
 
+    public void star1(){
+        brightness = !brightness;
+        star1.setVisible(brightness);
+    }
+
     public boolean isBouncing() {
     	return isBouncing;
     }

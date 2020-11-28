@@ -3,7 +3,7 @@ package threads;
 import model.Moon;
 import ui.EclipseGUI;
 
-public class MoonThread extends Thread{
+public class MoonThread extends Thread {
     private EclipseGUI moonGUI;
     private Moon moon;
 
@@ -15,7 +15,7 @@ public class MoonThread extends Thread{
 
     @Override
     public void run() {
-        while (moon.isMoving()){
+        while (moon.isMoving()) {
             moon.move();
             moonGUI.updateBall();
             try {

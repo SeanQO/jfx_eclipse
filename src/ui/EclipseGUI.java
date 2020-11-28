@@ -61,52 +61,49 @@ public class EclipseGUI {
     private Circle vesicle3;
 
     public EclipseGUI() {
-        
+
     }
 
     @FXML
     void startButton() {
-    	isBouncing=true;
-    	SliderThread sThread = new SliderThread(this);
-    	sThread.start();
-        MoonThread bt = new MoonThread(this,m);
+        isBouncing = true;
+        SliderThread sThread = new SliderThread(this);
+        sThread.start();
+        MoonThread bt = new MoonThread(this, m);
         m.setMoving(true);
         m.setMax(background.getWidth());
         bt.start();
     }
 
-
     @FXML
     void stopButton() {
-    	isBouncing=false;
-    	m.setMoving(false);
+        isBouncing = false;
+        m.setMoving(false);
     }
 
-    public void star(){
+    public void star() {
         brightness = !brightness;
         star.setVisible(brightness);
         star2.setVisible(brightness);
     }
 
-
     public boolean isBouncing() {
-    	return isBouncing;
+        return isBouncing;
     }
 
     public Slider getSlider() {
-    	return slider;
+        return slider;
     }
 
-    public void updateBall(){
+    public void updateBall() {
         moon.setLayoutX(m.getX());
-        if(moon.getLayoutX() >= sun.getLayoutX() - sun.getRadius() && moon.getLayoutX() <= sun.getLayoutX()) {
+        if (moon.getLayoutX() >= sun.getLayoutX() - sun.getRadius() && moon.getLayoutX() <= sun.getLayoutX()) {
             color = color.darker();
             star1.setVisible(true);
             star3.setVisible(true);
             star4.setVisible(true);
             star();
-        }
-        else {
+        } else {
             color = color.brighter();
             star.setVisible(false);
             star1.setVisible(false);
@@ -115,21 +112,19 @@ public class EclipseGUI {
             star4.setVisible(false);
         }
         sky.setFill(color);
-
     }
-    
+
     public void updateSpeed(long sleep) {
-    	m.setSleep(sleep);
+        m.setSleep(sleep);
     }
 
-    public void initialize(){
-        m = new Moon(moon.getLayoutX(),50,5,background.getWidth(),moon.getRadius());
-        color = (Color)sky.getFill();
+    public void initialize() {
+        m = new Moon(moon.getLayoutX(), 50, 5, background.getWidth(), moon.getRadius());
+        color = (Color) sky.getFill();
         star.setVisible(false);
         star1.setVisible(false);
         star2.setVisible(false);
         star3.setVisible(false);
         star4.setVisible(false);
     }
-
 }

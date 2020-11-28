@@ -1,8 +1,7 @@
 package model;
 
-public class Moon
-{
-    private double x ;
+public class Moon {
+    private double x;
     private long sleep;
     private int step;
     private int direction;
@@ -20,31 +19,38 @@ public class Moon
         direction = RIGHT;
         moving = false;
     }
-    public void move(){
-        x = x + direction*step;
-        if (x>646){
-            x=radius;
+
+    public void move() {
+        x = x + direction * step;
+        if (x > 646) {
+            x = radius;
         }
-        if (x==646){
+        if (x == 646) {
             x = -60;
             move();
         }
     }
+
     public double getX() {
         return x;
     }
+
     public long getSleep() {
         return sleep;
     }
+
     public void setSleep(long sleep) {
-    	this.sleep = sleep;
+        this.sleep = sleep;
     }
+
     public boolean isMoving() {
         return moving;
     }
+
     public void setMoving(boolean moving) {
         this.moving = moving;
     }
+
     public void setMax(double max) {
         this.max = max;
     }

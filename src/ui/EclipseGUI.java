@@ -2,6 +2,7 @@ package ui;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Slider;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
@@ -9,6 +10,7 @@ import model.DayCycle;
 import model.Moon;
 import threads.DayCycleThread;
 import threads.MoonThread;
+import threads.SliderThread;
 
 public class EclipseGUI {
     private Moon m;
@@ -38,6 +40,9 @@ public class EclipseGUI {
 
     @FXML
     private Circle star;
+    
+    @FXML
+    private Slider slider;
 
 
     private boolean isBouncing;
@@ -50,6 +55,8 @@ public class EclipseGUI {
     @FXML
     void startButton(ActionEvent event) {
     	isBouncing=true;
+    	SliderThread sThread = new SliderThread(this);
+    	sThread.start();
         MoonThread bt = new MoonThread(this,m);
         m.setMoving(true);
         m.setMax(background.getWidth());
@@ -85,9 +92,17 @@ public class EclipseGUI {
     public Circle getSun() {
     	return sun;
     }
+    
+    public Slider getSlider() {
+    	return slider;
+    }
 
     public void updateBall(){
         moon.setLayoutX(m.getX());
+    }
+    
+    public void updateSpeed(long sleep) {
+    	m.setSleep(sleep);
     }
 
     public void initialize(){

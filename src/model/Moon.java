@@ -42,6 +42,10 @@ public class Moon
     public int getStep() {
         return step;
     }
+    
+    public void setSleep(long sleep) {
+    	this.sleep = sleep;
+    }
 
     public boolean isMoving() {
         return moving;

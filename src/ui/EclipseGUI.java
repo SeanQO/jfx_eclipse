@@ -4,17 +4,19 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Slider;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-import javafx.stage.Stage;
+import javafx.scene.shape.Rectangle;
 import model.DayCycle;
 import model.Moon;
-import threads.DayCycleThread;
 import threads.MoonThread;
 import threads.SliderThread;
 
 public class EclipseGUI {
     private Moon m;
     private DayCycle d;
+    private boolean isBouncing;
+    private boolean brightness;
 	public final static double STEP = 5;
 
     @FXML
@@ -44,9 +46,11 @@ public class EclipseGUI {
     @FXML
     private Slider slider;
 
+    @FXML
+    private Color color;
 
-    private boolean isBouncing;
-
+    @FXML
+    private Rectangle sky;
 
     public EclipseGUI() {
         
@@ -61,8 +65,6 @@ public class EclipseGUI {
         m.setMoving(true);
         m.setMax(background.getWidth());
         bt.start();
-        DayCycleThread dt = new DayCycleThread(this,d);
-        dt.start();
     }
 
     @FXML
@@ -71,10 +73,17 @@ public class EclipseGUI {
     	m.setMoving(false);
     }
 
-    public void dayCycle(){
-        int r = 0;
-        int g = 0;
+    public Color getColor() {
+        return color;
+    }
 
+    public Rectangle getSky() {
+        return sky;
+    }
+
+    public void star(){
+        brightness = !brightness;
+        star.setVisible(brightness);
     }
 
     public boolean isBouncing() {
@@ -89,16 +98,20 @@ public class EclipseGUI {
     	return moon;
     }
     
-    public Circle getSun() {
-    	return sun;
-    }
-    
     public Slider getSlider() {
     	return slider;
     }
 
     public void updateBall(){
         moon.setLayoutX(m.getX());
+        if(moon.getLayoutX() >= sun.getLayoutX() - sun.getRadius() && moon.getLayoutX() <= sun.getLayoutX()) {
+            color = color.darker();
+        }
+        else {
+            color = color.brighter();
+        }
+        sky.setFill(color);
+        star();
     }
     
     public void updateSpeed(long sleep) {
@@ -107,9 +120,7 @@ public class EclipseGUI {
 
     public void initialize(){
         m = new Moon(moon.getLayoutX(),50,5,background.getWidth(),moon.getRadius());
-        d = new DayCycle(125,255,117,1000);
-
+        color = (Color)sky.getFill();
     }
-
 
 }

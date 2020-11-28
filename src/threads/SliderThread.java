@@ -14,12 +14,8 @@ public class SliderThread extends Thread{
 	@Override
     public void run() {
         while (eGui.isBouncing()){
-        	
-        	//adding one to avoid reaching 0, causes malfunction 
             double sliderValue =  100 - (eGui.getSlider().getValue() - 1);
-        	
             eGui.updateSpeed((long)sliderValue);
-            
         }
     }
 	

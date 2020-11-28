@@ -14,18 +14,6 @@ public class StarThread extends Thread{
 	}
 
 	public void run() {
-		/**
-		while (eGUI.isNigth()) {
-			
-			star.twinkle();
-			try {
-                Thread.sleep(star.getSleep());
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-			
-		}
-		 **/
 
 	}
 

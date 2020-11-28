@@ -22,4 +22,5 @@ public class Main extends Application {
         primaryStage.setTitle("Eclipse lunar");
         primaryStage.show();
     }
+    
 }

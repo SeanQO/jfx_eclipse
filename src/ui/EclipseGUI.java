@@ -71,7 +71,7 @@ public class EclipseGUI {
         sThread.start();
         MoonThread bt = new MoonThread(this, m);
         m.setMoving(true);
-        m.setMax(background.getWidth());
+        //m.setMax(background.getWidth());
         bt.start();
     }
 

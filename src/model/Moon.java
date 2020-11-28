@@ -6,7 +6,7 @@ public class Moon {
     private final int step;
     private final int direction;
     public static int RIGHT = 1;
-    private double max;
+   // private double max;
     private final double radius;
     private boolean moving;
 
@@ -14,7 +14,7 @@ public class Moon {
         this.x = x;
         this.sleep = sleep;
         this.step = step;
-        this.max = max;
+      //  this.max = max;
         this.radius = radius;
         direction = RIGHT;
         moving = false;
@@ -50,9 +50,9 @@ public class Moon {
     public void setMoving(boolean moving) {
         this.moving = moving;
     }
-
+/*
     public void setMax(double max) {
         this.max = max;
     }
-
+*/
 }

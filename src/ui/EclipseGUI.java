@@ -25,21 +25,6 @@ public class EclipseGUI {
     private Circle moon;
 
     @FXML
-    private Circle star4;
-
-    @FXML
-    private Circle star3;
-
-    @FXML
-    private Circle star1;
-
-    @FXML
-    private Circle star2;
-
-    @FXML
-    private Circle star;
-    
-    @FXML
     private Slider slider;
 
     @FXML
@@ -49,13 +34,28 @@ public class EclipseGUI {
     private Rectangle sky;
 
     @FXML
-    private Circle vesicle2;
+    private Circle star;
+
+    @FXML
+    private Circle star1;
+
+    @FXML
+    private Circle star2;
+
+    @FXML
+    private Circle star3;
+
+    @FXML
+    private Circle star4;
 
     @FXML
     private Circle vesicle;
 
     @FXML
     private Circle vesicle1;
+
+    @FXML
+    private Circle vesicle2;
 
     @FXML
     private Circle vesicle3;

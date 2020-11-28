@@ -1,6 +1,5 @@
 package ui;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Slider;
 import javafx.scene.layout.AnchorPane;
@@ -15,7 +14,6 @@ public class EclipseGUI {
     private Moon m;
     private boolean isBouncing;
     private boolean brightness;
-	public final static double STEP = 5;
 
     @FXML
     private AnchorPane background;
@@ -55,7 +53,7 @@ public class EclipseGUI {
     }
 
     @FXML
-    void startButton(ActionEvent event) {
+    void startButton() {
     	isBouncing=true;
     	SliderThread sThread = new SliderThread(this);
     	sThread.start();
@@ -67,17 +65,9 @@ public class EclipseGUI {
 
 
     @FXML
-    void stopButton(ActionEvent event) {
+    void stopButton() {
     	isBouncing=false;
     	m.setMoving(false);
-    }
-
-    public Color getColor() {
-        return color;
-    }
-
-    public Rectangle getSky() {
-        return sky;
     }
 
     public void star(){
@@ -86,19 +76,11 @@ public class EclipseGUI {
         star2.setVisible(brightness);
     }
 
-    
+
     public boolean isBouncing() {
     	return isBouncing;
     }
-    
-    public AnchorPane getBackground() {
-    	return background;
-    }
-    
-    public Circle getMoon() {
-    	return moon;
-    }
-    
+
     public Slider getSlider() {
     	return slider;
     }
@@ -107,12 +89,21 @@ public class EclipseGUI {
         moon.setLayoutX(m.getX());
         if(moon.getLayoutX() >= sun.getLayoutX() - sun.getRadius() && moon.getLayoutX() <= sun.getLayoutX()) {
             color = color.darker();
+            star1.setVisible(true);
+            star3.setVisible(true);
+            star4.setVisible(true);
+            star();
         }
         else {
             color = color.brighter();
+            star.setVisible(false);
+            star1.setVisible(false);
+            star2.setVisible(false);
+            star3.setVisible(false);
+            star4.setVisible(false);
         }
         sky.setFill(color);
-        star();
+
     }
     
     public void updateSpeed(long sleep) {
@@ -122,6 +113,11 @@ public class EclipseGUI {
     public void initialize(){
         m = new Moon(moon.getLayoutX(),50,5,background.getWidth(),moon.getRadius());
         color = (Color)sky.getFill();
+        star.setVisible(false);
+        star1.setVisible(false);
+        star2.setVisible(false);
+        star3.setVisible(false);
+        star4.setVisible(false);
     }
 
 }

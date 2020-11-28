@@ -8,6 +8,7 @@ public class MoonThread extends Thread{
     private Moon moon;
 
     public MoonThread(EclipseGUI moonGUI, Moon moon) {
+        setDaemon(true);
         this.moonGUI = moonGUI;
         this.moon = moon;
     }

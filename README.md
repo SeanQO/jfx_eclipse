@@ -5,10 +5,10 @@
 
 ## AUTHORS
 
-- [Paola Osorio] (https://github.com/paoos9513)
-- [Anderson Rueda] (https://github.com/ander2812)
-- [Sean Quintero] (https://github.com/SeanQO)
-- [Juan Pablo Ramos] (https://github.com/Juan-dev123)
+- [Paola Osorio](https://github.com/paoos9513)
+- [Anderson Rueda](https://github.com/ander2812)
+- [Sean Quintero](https://github.com/SeanQO)
+- [Juan Pablo Ramos](https://github.com/Juan-dev123)
 
 
 

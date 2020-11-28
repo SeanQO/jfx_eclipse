@@ -5,12 +5,14 @@ import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
+import model.DayCycle;
 import model.Moon;
 import threads.DayCycleThread;
 import threads.MoonThread;
 
 public class EclipseGUI {
     private Moon m;
+    private DayCycle d;
 	public final static double STEP = 5;
 
     @FXML
@@ -48,17 +50,24 @@ public class EclipseGUI {
     @FXML
     void startButton(ActionEvent event) {
     	isBouncing=true;
-    	new DayCycleThread(this, 243, 245, 127).start();
         MoonThread bt = new MoonThread(this,m);
         m.setMoving(true);
         m.setMax(background.getWidth());
         bt.start();
+        DayCycleThread dt = new DayCycleThread(this,d);
+        dt.start();
     }
 
     @FXML
     void stopButton(ActionEvent event) {
     	isBouncing=false;
     	m.setMoving(false);
+    }
+
+    public void dayCycle(){
+        int r = 0;
+        int g = 0;
+
     }
 
     public boolean isBouncing() {
@@ -83,6 +92,8 @@ public class EclipseGUI {
 
     public void initialize(){
         m = new Moon(moon.getLayoutX(),50,5,background.getWidth(),moon.getRadius());
+        d = new DayCycle(125,255,117,1000);
+
     }
 
 

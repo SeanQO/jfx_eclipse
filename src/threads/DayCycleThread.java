@@ -1,80 +1,41 @@
 package threads;
 
 import javafx.application.Platform;
+import model.DayCycle;
+import model.Moon;
 import ui.EclipseGUI;
 
 public class DayCycleThread extends Thread{
 	private EclipseGUI eGUI;
-	private int r;
-	private int g;
-	private int b;
-	private int steps;
-	private int changeInR;
-	private int changeInG;
-	private int changeInB;
-	private int[] RGB;
+	private DayCycle dayCycle;
+	private Moon moon;
 	
-	
-	public DayCycleThread(EclipseGUI eGUIP, int rP, int gP, int bP) {
+	public DayCycleThread(EclipseGUI eGUIP, DayCycle dayCycle) {
 		setDaemon(true);
 		eGUI = eGUIP;
-		r = rP;
-		g = gP;
-		b = bP;
-		RGB = new int[3];
-		RGB[0] = r;
-		RGB[1] = g;
-		RGB[2] = b;
-		double distance=eGUI.getSun().getLayoutX()-eGUI.getSun().getRadius()*2;
-		steps = (int)(distance/EclipseGUI.STEP);
-		changeInR=r/steps;
-		changeInG=g/steps;
-		changeInB=b/steps;
+		this.dayCycle = dayCycle;
 	}
 	
 	public void run() {
-		double positionOfTheMoon = eGUI.getMoon().getLayoutX();
-		double positionOfTheSun = eGUI.getSun().getLayoutX();
-		if(positionOfTheMoon>=positionOfTheSun && (r<RGB[0] || g<RGB[1] || b<RGB[2])) {
-			clearSky();
-		}else if(positionOfTheMoon>=eGUI.getSun().getRadius()*2 && positionOfTheMoon<positionOfTheSun) {
-			darkenSky();
-		}
-		Platform.runLater(new Thread() {
-			public void run() {
-				//eGUI.updateBackgroung(r, g, b);
+
+		//while (moon.isMoving()){
+		while(eGUI.getMoon().getLayoutX() < 184 || dayCycle.getG() == 9  ){
+				dayCycle.subtraction();
+			eGUI.getBackground().setStyle("-fx-background-color: rgb("+dayCycle.getR()+","+dayCycle.getG()+","+dayCycle.getB()+")");
+
+
+		}//else if(eGUI.getMoon().getLayoutX() > 184){
+				//dayCycle.sum();
+			//eGUI.getBackground().setStyle("-fx-background-color: rgb("+dayCycle.getR()+","+dayCycle.getG()+","+dayCycle.getB()+")");
+		//}
+
+			//dayCycle.changeColor();
+			try {
+				Thread.sleep(dayCycle.getSleep());
+			} catch (InterruptedException e) {
+				e.printStackTrace();
 			}
-		});
-		eGUI.getBackground().setStyle("-fx-background-color: rgb("+r+","+g+","+b+")");
-	}
-	
-	public void darkenSky() {
-		r-=changeInR;
-		g-=changeInG;
-		b-=changeInB;
-		if(r<0) {
-			r=0;
-		}
-		if(g<0) {
-			g=0;
-		}
-		if(b<0) {
-			b=0;
-		}
-	}
-	
-	public void clearSky() {
-		r+=changeInR;
-		g+=changeInG;
-		b+=changeInB;
-		if(r>RGB[0]) {
-			r=RGB[0];
-		}
-		if(g>RGB[1]) {
-			g=RGB[1];
-		}
-		if(b>RGB[2]) {
-			b=RGB[2];
-		}	
+		//}
+
 	}
 }

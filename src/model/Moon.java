@@ -30,31 +30,21 @@ public class Moon
             move();
         }
     }
-
     public double getX() {
         return x;
     }
-
     public long getSleep() {
         return sleep;
     }
-
-    public int getStep() {
-        return step;
-    }
-    
     public void setSleep(long sleep) {
     	this.sleep = sleep;
     }
-
     public boolean isMoving() {
         return moving;
     }
-
     public void setMoving(boolean moving) {
         this.moving = moving;
     }
-
     public void setMax(double max) {
         this.max = max;
     }

@@ -48,6 +48,18 @@ public class EclipseGUI {
     @FXML
     private Rectangle sky;
 
+    @FXML
+    private Circle vesicle2;
+
+    @FXML
+    private Circle vesicle;
+
+    @FXML
+    private Circle vesicle1;
+
+    @FXML
+    private Circle vesicle3;
+
     public EclipseGUI() {
         
     }

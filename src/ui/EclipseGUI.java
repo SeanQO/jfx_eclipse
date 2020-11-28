@@ -7,14 +7,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
-import model.DayCycle;
 import model.Moon;
 import threads.MoonThread;
 import threads.SliderThread;
 
 public class EclipseGUI {
     private Moon m;
-    private DayCycle d;
     private boolean isBouncing;
     private boolean brightness;
 	public final static double STEP = 5;
@@ -85,13 +83,10 @@ public class EclipseGUI {
     public void star(){
         brightness = !brightness;
         star.setVisible(brightness);
+        star2.setVisible(brightness);
     }
 
-    public void star1(){
-        brightness = !brightness;
-        star1.setVisible(brightness);
-    }
-
+    
     public boolean isBouncing() {
     	return isBouncing;
     }
